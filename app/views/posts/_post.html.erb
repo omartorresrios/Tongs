@@ -27,9 +27,37 @@
         <%= render partial: 'posts/bookmarks', locals: { post: post } %>
       </div>
     </div>
+
+    <div class="post-tags">
+      <% post.tags.each do |tag| %>
+        <%= link_to tag.name, tag, class: 'tag' %>
+      <% end %>
+    </div>
+
     <div class="response-count pull-right">
       <% if post.responses_count > 0 %>
-        <%= link_to (pluralize(post.responses_count, "respuesta")), post_path(post, anchor: 'responses'), class: 'response-count' %>
+        <div data-behavior="response-count"><%= pluralize(post.responses_count, "respuesta") %></div> <%# Maybe later a link_to could be added to open the comment box (which should be hidden) %>
+      <% end %>
+    </div>
+
+    <h4 class="small-heading">Respuestas</h4>
+    <!--<% if user_signed_in? %>
+      <%= render partial: 'posts/response_editor', locals: { post: post } %>
+    <% end %>-->
+
+    <%= form_for [post, Response.new], remote: true do |f| %>
+      <p>
+        <%= f.label :body, "New Comment" %><br/>
+        <%= f.text_area :body %>
+      </p>
+      <p>
+        <%= f.submit "Add Comment"%>
+      </p>
+    <% end %>
+
+    <div data-behavior="responses-list">
+      <% if post.responses_count > 0 %>
+        <%= render :partial => post.responses %>
       <% end %>
     </div>
   </div>

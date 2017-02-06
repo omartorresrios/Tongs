@@ -11,9 +11,14 @@ en:
         title: Title
         body: Body
         user_id: User
+      response:
+        body: Body
+        post_id: Post
+        user_id: User
     models:
       user: User
       post: Post
+      response: Response
   helpers:
     select:
       prompt: Por favor selecciona

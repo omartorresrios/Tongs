@@ -27,12 +27,19 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.publish
-      redirect_to root_url#, notice: "¡Post creado!"
+      #redirect_to root_url, notice: "¡Post creado!"
+      respond_to do |format|
+        format.html { redirect_to root_url }
+        format.js
+      end
+      
     else
       @post.unpublish
-      flash.now[:alert] = "Algo anda mal. Intenta de nuevo :)"
-      render :new
+      #flash[:notice] = "Algo anda mal. Intenta de nuevo :)" # When rendering use
+      redirect_to root_url, notice: "Algo anda mal. Intenta de nuevo 🙃" # When redirecting use
+      #render :new
     end
+    
   end
 
   def edit
@@ -54,12 +61,12 @@ class PostsController < ApplicationController
     redirect_to root_url#, notice: "Post eliminado"
   end
 
-  # TODO: ideally move this to a separate controller?
-  def create_and_edit
-    @post = current_user.posts.build(post_params)
-    @post.save_as_draft
-    redirect_to edit_post_url(@post)
-  end
+  # Comment this method because a post does not have an own view
+  # def create_and_edit
+  #   @post = current_user.posts.build(post_params)
+  #   #@post.save_as_draft
+  #   redirect_to edit_post_url(@post)
+  # end
 
   private
 

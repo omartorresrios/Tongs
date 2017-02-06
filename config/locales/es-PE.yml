@@ -200,5 +200,10 @@ es-PE:
         title: 
         body: 
         user_id: 
+      response:
+        body: 
+        post_id: 
+        user_id: 
     models:
       user: 
+      response: 

@@ -11,9 +11,15 @@ Rails.application.routes.draw do
     resources :recommended_posts, only: [:index]
   end
 
+  # get '/' => "posts#new", as: :new_post
+
   resources :posts, except: [:index] do
     resources :responses, only: [:create]
   end
+
+  # resources :posts, :path => "/", except: [:index, :new] do
+  #   resources :responses, only: [:create]
+  # end
 
   resources :tags, only: [:show]
 
@@ -24,7 +30,6 @@ Rails.application.routes.draw do
   get "search" => "search#show", as: :search
   get "search/users" => "search#users", as: :search_users
   post "posts/create_and_edit" => "posts#create_and_edit", as: :post_create_and_edit
-  post "/" => "posts#create", as: :posts_create_dashboard 
 
   namespace :admin do
     resource :dashboard, only: [:show]
