@@ -1,5 +1,13 @@
 /* Extra small devices (phones, less than 768px) */
 
+#showInlineEditor {
+  display: none;
+}
+
+#clikme {
+  position: fixed;  
+}
+
 .dashboard-main-content {
   padding-top: 1em;
   padding-bottom: 1em;
