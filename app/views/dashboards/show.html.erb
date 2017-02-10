@@ -14,7 +14,7 @@
     <% unless @dashboard.top_stories? %>
       <% if current_page?('/') %>
         <div id="showInlineEditor">
-          <%= render 'shared/inline_editor' %>
+          <%= render 'posts/form' %>
         </div>
       <% end %>
       <div class="posts-wrapper" data-behavior="endless-scroll">

@@ -1,4 +1,4 @@
-<%= form_for post, html: { multipart: true, class: "editor-form", data: { page: 'main-editor' }, autocomplete: "off" } do |f| %>
+<%= form_for @post, remote: true, html: { multipart: true, class: "editor-form", data: { page: 'main-editor' }, autocomplete: "off" } do |f| %>
 
   <label class="picture_upload">
     <%= f.file_field :picture %>
@@ -7,9 +7,9 @@
   <div class="file-upload-previewer hidden">
     <img src="" id="image_preview"/>
   </div>
-  <% if post.picture? %>
+  <% if @post.picture? %>
     <div class="existing-img-previewer" id="existing-img-previewer">
-      <%= image_tag post.picture.url(:thumb) %>
+      <%= image_tag @post.picture.url(:thumb) %>
     </div>
   <% end %>
 
@@ -21,8 +21,18 @@
     <%= f.text_area :body, class: 'medium-editable', data: { behavior: "autosave" } %> 
   </div>
 
+  <div>
+    <h4 class="text-center">¡Un paso más!</h4>
+    <div class="clearfix tag-marg" data-behavior="tags" data-tags="<%= @post.all_tags %>">
+      <div id="js-taggle" style="position: relative;" data-behavior="autosave"></div>
+    </div>
+  </div>
+
   <div class="hidden">
     <%= f.text_field :all_tags %>
   </div>
+
+  <button class="button green-border-button">Publicar</button>
+      <button class='button green-border-button cancel-button' data-behavior="editor-cancel">Cancelar</button>
 
 <% end %>
