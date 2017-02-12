@@ -36,10 +36,10 @@
       <h4 class="small-heading border-feat-tags">Tags destacados</h4>
       <%= react_component('TagList', { tags: @dashboard.featured_tags }, { prerender: true }) %>
 
-      <div class="flex-container border-top">
+      <!-- <div class="flex-container border-top">
         <h4 class="small-heading">Tags que sigues</h4><%= react_component('AddTagButton') %>
       </div>
-      <%= react_component('FollowingTagList', { followingTags: current_user.following_tags }) %>
+      <%= react_component('FollowingTagList', { followingTags: current_user.following_tags }) %> -->
             
     </aside>
   <% end %>

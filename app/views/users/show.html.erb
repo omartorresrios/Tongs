@@ -66,9 +66,9 @@
 <div class="posts-wrapper">
   <div class="flex-container border-top">
     <h4 class="small-heading">Intereses</h4>
-    <% if user_signed_in? && current_user?(@user) %>
+    <!--<% if user_signed_in? && current_user?(@user) %>
       <%= react_component('AddTagButton') %>
-    <% end %>
+    <% end %>-->
   </div>
   <% if user_signed_in? && current_user?(@user) %>
     <%= react_component('FollowingTagList', { followingTags: current_user.following_tags }) %>
