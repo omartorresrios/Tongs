@@ -131,6 +131,9 @@ es-PE:
       create: Crear %{model}
       submit: Guardar %{model}
       update: Actualizar %{model}
+    label:
+      user:
+        remember_me: 
   number:
     currency:
       format:
@@ -196,6 +199,7 @@ es-PE:
         email: 
         password: 
         password_confirmation: 
+        remember_me: 
       post:
         title: 
         body: 

@@ -2,19 +2,24 @@
   <div class="col-md-6 col-md-offset-3 container">
     <div class="overlay-signup">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { autocomplete: 'off' }) do |f| %>
-        <%= devise_error_messages! %>
-
+        
         <div class="form-input-wrapper-sessions white-black">
+          <%= f.label :username, "Nombre de usuario" %>
           <%= f.text_field :username, autofocus: true, placeholder: "Nombre Completo", onfocus: "this.value = this.value;" %>
+          <%= f.error_message_for(:username) %>
         </div>
 
         <div class="form-input-wrapper-sessions white-black">
+          <%= f.label :email, "Correo" %>
           <%= f.email_field :email, placeholder: "Correo" %>
+          <%= f.error_message_for(:email) %>
         </div>
 
         <% if f.object.password_required? %>
           <div class="form-input-wrapper-sessions white-black">
+            <%= f.label :password, "Contraseña" %>
             <%= f.password_field :password, autocomplete: "off", placeholder: "Contraseña (mínimo #{@minimum_password_length} caracteres)" %>
+            <%= f.error_message_for(:password) %>
           </div>
 
           <div class="form-input-wrapper-sessions white-black">
@@ -32,6 +37,7 @@
       <div class="devise-links">
         <%= render "devise/shared/links" %>
       </div>-->
+
     </div>
   </div>
 </div>

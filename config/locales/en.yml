@@ -7,6 +7,7 @@ en:
         username: Username
         password: Password
         password_confirmation: Password confirmation
+        remember_me: Remember me
       post:
         title: Title
         body: Body
@@ -29,6 +30,7 @@ en:
     label:
       user:
         Recuérdame: 
+        remember_me: 
   date:
     abbr_day_names:
     - dom
@@ -145,7 +147,7 @@ en:
       not_an_integer: Debe ser un entero
       odd: Debe ser impar
       record_invalid: 'La validación falló: %{errors}'
-      taken: Ya está en uso
+      taken: ya está en uso
       too_long: Es demasiado largo (%{count} caracteres máximo)
       too_short: Es demasiado corto (%{count} caracteres mínimo)
       wrong_length: No tiene la longitud correcta (%{count} caracteres exactos)
