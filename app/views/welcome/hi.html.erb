@@ -8,7 +8,7 @@
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { autocomplete: 'off' }) do |f| %>
     <div class="form-input-wrapper-sessions white-black">
-      <%= f.email_field :email, autofocus: true, placeholder: "Correo", autocomplete: 'off', onfocus: "this.value = this.value;" %>
+      <%= f.text_field :login, autofocus: true, placeholder: "Nombre de usuario o correo", autocomplete: 'off', onfocus: "this.value = this.value;" %>
     </div>
 
     <div class="form-input-wrapper-sessions white-black">
@@ -47,6 +47,8 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Reingresa tu contraseña" %>
       </div>
     <% end %>
+
+    <%= link_to "Olvidaste tu contraseña?", new_password_path('user'), :class => "login-link" %>
 
     <%= f.submit "Crear cuenta", class: "button buttons-session" %>
     <!-- <p class="o">o</p>

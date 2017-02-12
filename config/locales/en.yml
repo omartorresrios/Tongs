@@ -2,6 +2,7 @@ en:
   activerecord:
     attributes:
       user:
+        login: Nombre de usuario o correo
         Recuérdame: Recuérdame
         email: Email
         username: Username
