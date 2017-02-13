@@ -1,6 +1,10 @@
 class API::TagsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @tag = Tag.find(params[:id])
+  end
+
   def create
     if params[:tag_name].strip.present?
       tag = Tag.first_or_create_with_name!(params[:tag_name])

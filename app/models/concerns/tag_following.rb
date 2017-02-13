@@ -19,4 +19,8 @@ module TagFollowing
     following_tag_ids.include?(tag.id)
   end
 
+  def tag_to_follow
+    Tag.where.not(id: following_tag_ids).limit(25).order("RANDOM()")
+  end
+
 end

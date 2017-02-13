@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get "search" => "search#show", as: :search
   get "search/users" => "search#users", as: :search_users
   post "posts/create_and_edit" => "posts#create_and_edit", as: :post_create_and_edit
+  get "follow-courses" => "my_first_tags#show", as: :follow_courses
 
   namespace :admin do
     resource :dashboard, only: [:show]
@@ -53,8 +54,9 @@ Rails.application.routes.draw do
     resources :followers, only: [:index]
     resources :following, only: [:index]
     resources :following_tags, only: [:index]
-    resources :tags, only: [:create]
+    resources :tags, only: [:create, :show]
     resources :follow_suggestions, only: [:index]
+    resources :follow_tags_suggestions, only: [:index]
 
     resources :posts, only: [] do
       resource :likes, only: [:create, :destroy], module: :posts

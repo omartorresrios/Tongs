@@ -5,6 +5,18 @@ class TagFollowButton extends React.Component {
     this.state = { following: this.props.following }
   }
 
+  componentWillMount() {
+    this.token = PubSub.subscribe('TagFollowButton:onClick', (msg, data) => {
+      if (this.props.tag_id === data.tag_id) {
+        this.setState({ following: data.following });
+      }
+    })
+  }
+
+  componentWillUnmount() {
+    PubSub.unsubscribe(this.token);
+  }
+
   render () {
     return (
       <div>
