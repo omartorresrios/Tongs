@@ -134,6 +134,8 @@ es-PE:
     label:
       user:
         remember_me: 
+      post:
+        attachment: 
   number:
     currency:
       format:
@@ -204,6 +206,7 @@ es-PE:
         title: 
         body: 
         user_id: 
+        attachment: 
       response:
         body: 
         post_id: 

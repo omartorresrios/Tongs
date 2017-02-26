@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get "me/stories/public" => "stories#published", as: :stories_published
   get "search" => "search#show", as: :search
   get "search/users" => "search#users", as: :search_users
+  get "search/tags" => "search#tags", as: :search_tags
   post "posts/create_and_edit" => "posts#create_and_edit", as: :post_create_and_edit
   get "follow-courses" => "my_first_tags#show", as: :follow_courses
 

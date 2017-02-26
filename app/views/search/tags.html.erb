@@ -1,7 +1,7 @@
 <div class="col-md-10 col-md-offset-1"  style="margin-top: 60px;">
   <div class="row">
     <div class="col-md-12 large-searchbar">
-      <%= form_for :search, url: search_users_path, method: :get do |f| %>
+      <%= form_for :search, url: search_tags_path, method: :get do |f| %>
         <%= f.search_field :q, value: params[:q], placeholder: 'Busca en Tongs...', autofocus: true, autocomplete: 'off', onfocus: "this.value = this.value;" %>
       <% end %>
     </div>
@@ -15,29 +15,18 @@
           <%= link_to search_users_path(q: params[:q]) do %>
             Gente <span class="glyphicon glyphicon-chevron-right pull-right"></span>
           <% end %>
-
         </div>
-        <div class="filter-link"><%= link_to 'Cursos', search_tags_path(q: params[:q]) %></div>
+
+        <div class="active filter-link">
+          <%= link_to search_tags_path(q: params[:q]) do %>
+            Cursos <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+          <% end %>
+        </div>
       </div>
     </div>
 
     <div class="col-md-7">
-      <div>
-        <% @users.each do |user| %>
-          <div class="user-panel">
-            <div class="avatar-wrapper">
-              <%= avatar_for user, size: 60 %>
-            </div>
-            <div class="user-metadata">
-              <h4><%= link_to user.username, user %></h4>
-              <p><%= user.description %></p>
-            </div>
-            <div class="follow-button-wrapper">
-              <%= follow_button_for(user) %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <%= react_component('TagList', { tags: @tags }, { prerender: true }) %>
     </div>
   </div>
 </div>

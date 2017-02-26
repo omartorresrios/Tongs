@@ -13,6 +13,7 @@ en:
         title: Title
         body: Body
         user_id: User
+        attachment: Attachment
       response:
         body: Body
         post_id: Post
@@ -32,6 +33,8 @@ en:
       user:
         Recuérdame: 
         remember_me: 
+      post:
+        attachment: 
   date:
     abbr_day_names:
     - dom

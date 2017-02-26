@@ -12,6 +12,10 @@ class SearchController < ApplicationController
     @users = User.search(query_term).records.to_a
   end
 
+  def tags
+    @tags = Tag.search(query_term).records.to_a
+  end
+
   private
 
     def beautify_url
@@ -21,6 +25,8 @@ class SearchController < ApplicationController
           redirect_to search_url(q: params[:search][:q])
         when "users"
           redirect_to search_users_url(q: params[:search][:q])
+        when "tags"
+          redirect_to search_tags_url(q: params[:search][:q])
         end
       end
     end
