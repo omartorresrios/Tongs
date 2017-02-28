@@ -11,7 +11,9 @@ gem 'devise', '~> 3.5.3'
 gem 'omniauth-facebook', '~> 3.0'
 gem 'omniauth-twitter', '~> 1.2'
 gem 'omniauth-google-oauth2', '~> 0.3.1'
-#gem "koala", "~> 2.2"
+
+#Devise_invitable
+#gem 'devise_invitable'
 
 
 gem 'localeapp', '~> 1.0', '>= 1.0.2'
@@ -77,6 +79,7 @@ group :development do
   gem 'bullet', '~> 5.0'
   gem 'quiet_assets', '~> 1.1'
   gem 'pry-rails', '~> 0.3.4'
+  gem 'letter_opener'
 end
 
 group :test do
