@@ -134,6 +134,8 @@ es-PE:
     label:
       user:
         remember_me: 
+        password: 
+        password_confirmation: 
       post:
         attachment: 
   number:
@@ -202,6 +204,7 @@ es-PE:
         password: 
         password_confirmation: 
         remember_me: 
+        invitation_token: 
       post:
         title: 
         body: 
@@ -214,3 +217,7 @@ es-PE:
     models:
       user: 
       response: 
+  devise:
+    mailer:
+      invitation_instructions:
+        user_subject: 

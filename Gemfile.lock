@@ -117,9 +117,6 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    devise_invitable (1.6.1)
-      actionmailer (>= 3.2.6)
-      devise (>= 3.2.0)
     diff-lcs (1.2.5)
     domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
@@ -584,7 +581,6 @@ DEPENDENCIES
   carrierwave (~> 0.10.0)
   database_cleaner (~> 1.5)
   devise (~> 3.5.3)
-  devise_invitable
   elasticsearch-model (~> 0.1.8)
   elasticsearch-rails (~> 0.1.8)
   factory_girl_rails (~> 4.5.0)

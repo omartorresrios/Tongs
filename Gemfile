@@ -5,15 +5,13 @@ gem 'rails', '4.2.6'
 gem 'puma', '~> 2.15'
 gem 'pg', '~> 0.15'
 
+
 #Auth
 
 gem 'devise', '~> 3.5.3'
 gem 'omniauth-facebook', '~> 3.0'
 gem 'omniauth-twitter', '~> 1.2'
 gem 'omniauth-google-oauth2', '~> 0.3.1'
-
-#Devise_invitable
-#gem 'devise_invitable'
 
 
 gem 'localeapp', '~> 1.0', '>= 1.0.2'
