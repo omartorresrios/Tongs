@@ -17,9 +17,9 @@
     <%= f.text_field :title, class: 'editor-title', placeholder: 'Título', autofocus: true, data: { behavior: "autosave" }, onfocus: "this.value = this.value;" %>
   </div>
 
-  <div class="form-group">
-    <%= f.text_area :body, class: 'medium-editable', data: { behavior: "autosave" } %> 
-  </div>
+  <p class="emoji-picker-container">
+    <%= f.text_area :body, class: 'medium-editable', data: { behavior: "autosave", emojiable: true } %> 
+  </p>
 
   <div>
     <h4 class="text-center">¡Un paso más!</h4>

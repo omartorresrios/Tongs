@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'impressionist'
 gem "redcarpet"
 gem 'sprockets', '3.6.3'
+gem 'rails_emoji_picker'
 
 # Load will_paginate before elasticsearch gems.
 gem 'will_paginate', '~> 3.1'
