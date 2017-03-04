@@ -57,8 +57,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @dashboard = Dashboard.new(user: current_user, posts: feed)
     @post.destroy
-    redirect_to root_url#, notice: "Post eliminado"
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: "Post eliminado" }
+      format.js
+    end
   end
 
   # Comment this method because a post does not have an own view
@@ -69,6 +73,10 @@ class PostsController < ApplicationController
   # end
 
   private
+
+    def feed
+      Feed.new(current_user, page: params[:page])
+    end
 
     def post_params
       params.require(:post).permit(:title, :body, :all_tags, :picture)

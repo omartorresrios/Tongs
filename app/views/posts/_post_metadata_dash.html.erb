@@ -13,9 +13,7 @@
           <span class="glyphicon glyphicon-chevron-down"></span>
         </button>
         <ul class="dropdown-menu">
-          <!--<%= link_to "Editar", url_for(post) %>-->
-          <%= link_to 'Editar', [:edit, post], style: 'display: block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;' %></td>
-          <%= link_to "Eliminar", post, style: 'display: block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;', method: :delete, data: { confirm: "¿Deseas eliminar el post?"} %>
+          <%= link_to "Eliminar", post, style: 'display: block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 1.42857143;color: #333333;white-space: nowrap;', method: :delete, remote: true, data: { confirm: "¿Deseas eliminar el post?"} %>
         </ul>  
       </div>
     </small>
