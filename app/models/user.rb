@@ -98,14 +98,6 @@ class User < ActiveRecord::Base
     Hash[all_names.zip(all_likes)]
   end
 
-  def update_total_post_views
-    User.includes(:posts).all.map { |u| u.posts.sum(:impressions_count) }
-  end
-
-  def names_views
-    Hash[all_names.zip(update_total_post_views)]
-  end
-
   def self.find_for_database_authentication warden_conditions
     conditions = warden_conditions.dup
     login = conditions.delete(:login)

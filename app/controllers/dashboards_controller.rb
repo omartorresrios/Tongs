@@ -4,7 +4,7 @@ class DashboardsController < ApplicationController
 
   def show
     if user_signed_in?
-      @dashboard = Dashboard.new(user: current_user, posts: feed)
+      @dashboard = Dashboard.new(user: current_user, posts: feed.includes(:tags))
       @post = @dashboard.new_post
     else
       redirect_to welcome_hi_path
