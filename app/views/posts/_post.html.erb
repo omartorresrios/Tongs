@@ -44,7 +44,7 @@
 
     <div data-behavior="responses-list">
       <% if post.responses_count > 0 %>
-        <%= render :partial => post.responses.includes(:user).limit(2).order('created_at desc') %>
+        <%= render :partial => post.responses.includes(:post).includes(:user).limit(2).order('created_at desc') %>
       <% end %>
     </div>
   </div>

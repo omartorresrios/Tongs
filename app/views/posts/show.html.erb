@@ -100,7 +100,7 @@
 
     <div data-behavior="responses-list">
       <% if @responses.any? %>
-          <%= render @responses %>
+          <%= render @responses.includes(:post) %>
       <% end %>
     </div>
   </div>
