@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # get '/' => "posts#new", as: :new_post
 
   resources :posts, except: [:index] do
-    resources :responses, only: [:create]
+    resources :responses, only: [:create, :destroy]
   end
 
   # resources :posts, :path => "/", except: [:index, :new] do

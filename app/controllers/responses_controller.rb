@@ -1,8 +1,7 @@
 class ResponsesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :set_post
 
   def create
-    @post = Post.find(params[:post_id])
     @response = current_user.responses.create(body: params[:response][:body], post_id: @post.id)
     if @response.valid?
       notify_author_and_responders
@@ -16,7 +15,22 @@ class ResponsesController < ApplicationController
     end
   end
 
+  def destroy
+    @response = @post.responses.find(params[:id])
+    if @response.user_id == current_user.id
+      @response.delete
+      respond_to do |format|
+        format.html { redirect_to @post }
+        format.js
+      end
+    end
+  end
+
   private
+
+    def set_post
+      @post = Post.find(params[:post_id])
+    end
 
     def notify_author_and_responders
       (@post.responders.uniq - [current_user]).each do |user|

@@ -11,6 +11,10 @@
     <p class="response-body"><%= remove_javascript(response.body).html_safe %></p>
   </div>
 
+  <% if response.user == current_user %>
+  <%= link_to '', post_response_path(response.post, response), method: :delete, data: { confirm: 'Delete comment?'}, remote: true, class: 'glyphicon glyphicon-trash text-danger', title: 'Delete comment', rel: 'tooltip' %>
+  <% end %>
+
   <div class="response-stats clearfix resp-t-b-pad">
     <div id="response_<%= response.id %>_likes" class="pull-left">
       <%= render partial: 'responses/likes', locals: { response: response } %>
