@@ -7,7 +7,7 @@ class ResponsesController < ApplicationController
     if @response.valid?
       notify_author_and_responders
       respond_to do |format|
-        format.html { redirect_to root_url }
+        format.html { redirect_to @post }
         format.js
       end
     else

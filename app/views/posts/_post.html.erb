@@ -10,7 +10,7 @@
   <div class="main-body">
     <h3 class="post-title"><%= link_to post.title, post %></h3>
     <% if post.lead %>
-      <div class="post-body"><%= truncate(remove_javascript(post.lead), length: 400, separator: ' ', escape: false) %></div>
+      <div class="post-body"><%= link_to truncate(remove_javascript(post.lead), length: 400, separator: ' ', escape: false), post %></div>
       <%= link_to "Sigue leyendo", post, class: 'read-more' if post.characters > 400 %>
     <% end %>
   </div>
@@ -36,28 +36,15 @@
 
     <div class="response-count pull-right">
       <% if post.responses_count > 0 %>
-        <div data-behavior="response-count"><%= pluralize(post.responses_count, "respuesta") %></div> <%# Maybe later a link_to could be added to open the comment box (which should be hidden) %>
+        <%= link_to (pluralize(post.responses_count, "respuesta")), post_path(post, anchor: 'responses'), class: 'response-count' %>
       <% end %>
     </div>
 
     <h4 class="small-heading">Respuestas</h4>
-    <!--<% if user_signed_in? %>
-      <%= render partial: 'posts/response_editor', locals: { post: post } %>
-    <% end %>-->
-
-    <%= form_for [post, Response.new], remote: true do |f| %>
-      <p>
-        <%= f.label :body, "New Comment" %><br/>
-        <%= f.text_area :body %>
-      </p>
-      <p>
-        <%= f.submit "Add Comment"%>
-      </p>
-    <% end %>
 
     <div data-behavior="responses-list">
       <% if post.responses_count > 0 %>
-        <%= render :partial => post.responses %>
+        <%= render :partial => post.responses.includes(:user).limit(2).order('created_at desc') %>
       <% end %>
     </div>
   </div>
