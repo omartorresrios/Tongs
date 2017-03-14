@@ -55,7 +55,7 @@ gem 'nokogiri', '~> 1.6'
 # Image upload
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.5'
-gem 'fog', '~> 1.37'
+gem 'fog', '~> 1.38'
 gem 'net-ssh'
 
 
