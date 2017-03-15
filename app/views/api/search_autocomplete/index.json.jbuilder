@@ -2,6 +2,7 @@ json.posts do |json|
   json.array! @posts do |post|
     json.id post.id
     json.title truncate(post.title, length: 38)
+    json.body truncate(remove_javascript(post.body.to_s), length: 45, separator: ' ', escape: false)
     json.avatar_url post.user.avatar_url.present? ? post.user.avatar_url : image_path('default-avatar.png')
     json.url post_path(post.slug)
   end
