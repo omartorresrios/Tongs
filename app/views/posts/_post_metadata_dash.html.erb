@@ -4,11 +4,7 @@
     <div class="post-info">
       <%= react_component("PopoverLink", { user_id: post.user.id, url: user_path(post.user), children: post.username }) %>
 
-      <% post.user.names_likes.each do |x| %>
-        <% if post.username == x[0] %>
-          <%= x[1] %> validaciones
-        <% end %>
-      <% end %>
+      <%= post.user.sum_validations %> validaciones
 
       <small><%= time_ago_in_words(post.published_at) %> &#149; <%= post_length_in_minutes(post.body) %></small>
     </div>

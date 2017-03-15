@@ -86,16 +86,8 @@ class User < ActiveRecord::Base
     send("bookmarked_#{downcased_class_name(bookmarkable_obj)}_ids").include?(bookmarkable_obj.id)
   end
 
-  def all_likes
-    User.all.map { |u| u.posts.sum(:likes_count) }    
-  end
-
-  def all_names
-    User.all.map { |u| u.username }
-  end
-
-  def names_likes
-    Hash[all_names.zip(all_likes)]
+  def sum_validations
+    posts.sum(:likes_count)
   end
 
   def self.find_for_database_authentication warden_conditions

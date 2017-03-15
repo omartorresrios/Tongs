@@ -6,6 +6,11 @@
           <%= react_component('FollowSuggestionsContainer') %>
         </div>
       </div>
+      <div>
+        <% @user.each do |u| %>
+          <%= u.username %> <%= u.sum_validations %></br>
+        <% end %>
+      </div>
     </div> 
   </div>
 

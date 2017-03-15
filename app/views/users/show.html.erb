@@ -45,11 +45,7 @@
         <div class="tongs-num">
           <%= image_tag('minitong.png', type: 'image/png', height: 50) %>
           <div class="hero-tongs">
-            <% @user.names_likes.each do |x| %>
-              <% if @user.username == x[0] %>
-                <%= x[1] %> tongs
-              <% end %>
-            <% end %>
+            <%= @user.sum_validations %> validaciones
           </div>  
         </div>
       </div>
