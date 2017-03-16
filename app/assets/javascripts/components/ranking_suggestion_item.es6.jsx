@@ -1,4 +1,4 @@
-class SuggestionItem extends React.Component {
+class RankingSuggestionItem extends React.Component {
   render () {
     return (
       <div className="suggestion-item">
@@ -9,14 +9,8 @@ class SuggestionItem extends React.Component {
         <div>
           <h5><PopoverLink user_id={this.props.id} url={this.props.urlPath} children={this.props.username} /></h5>
         </div>
-        <div>
-          <p><PopoverLink user_id={this.props.id} children={this.props.validations} /></p>
-        </div>
         <div className="button-wrapper">
-          <UserFollowButton
-            following={this.props.following}
-            followed_id={this.props.id}
-          />
+          <p> {this.props.validations} </p>
         </div>
       </div>
     );

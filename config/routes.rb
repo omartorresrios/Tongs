@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     resources :following_tags, only: [:index]
     resources :tags, only: [:create, :show]
     resources :follow_suggestions, only: [:index]
+    resources :users_ranking, only: [:index]
     resources :follow_tags_suggestions, only: [:index]
 
     resources :posts, only: [] do
